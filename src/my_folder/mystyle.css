@@ -1,0 +1,26 @@
+.leftside
+{
+    margin:2%;
+   
+    height: 90vh;
+    border-radius:20px ;
+    background-color:#7258db;
+   
+            position: -webkit-sticky;
+            position: sticky;
+            top: 4.5%;
+   
+   
+}
+
+.brow
+{
+    display: flex;
+    background-color: #f9fbfd;
+}
+.rightside
+{
+    margin: 2%;
+    
+    background-color: #fff;
+}

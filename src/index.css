@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.style1
+{
+  background-image: url(../public/project/themewagon.github.io/cozastore/images/slide-01.jpg);
+}
+.style2{
+  background-image: url(../public/project/themewagon.github.io/cozastore/images/slide-02.jpg);
+}
+.style3
+{
+  background-image: url(../public/project/themewagon.github.io/cozastore/images/slide-03.jpg);
+}
+.style4{
+  color: #222;
+}
+.style5{color: #4272d7;}
+.style6{color: #b3b3b3;}
+.style7{color: #00ad5f;}
+.style8{color: #fa4251;}
+.style9{color: #aaa;}
+
+.stylep1
+{
+  
+        
+        background-image: url(../public/project/themewagon.github.io/cozastore/images/bg-01.jpg);
+      
+    
+}
+.styleb1 {
+
+
+  background-image: url(../public/project/themewagon.github.io/cozastore/images/bg-02.jpg);
+
+
+}
+.slider1{
+  margin-right: 100px;
+}

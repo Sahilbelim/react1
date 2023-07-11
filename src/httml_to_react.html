@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>HTML to React Converter</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">HTML to React Converter</h1>
+        <div class="form-group">
+            <textarea id="htmlInput" class="form-control" rows="10" placeholder="Paste your HTML code here"></textarea>
+        </div>
+        <button id="convertBtn" class="btn btn-primary">Convert to React</button>
+        <div class="mt-4">
+            <h4>React Output:</h4>
+            <div class="input-group">
+                <pre id="reactOutput" class="form-control" style="width: 1200px;height: 500px;"></pre>
+                <div class="input-group-append">
+                    <button id="copyBtn" class="btn btn-secondary">Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script >document.getElementById('convertBtn').addEventListener('click', function () {
+            var htmlInput = document.getElementById('htmlInput').value;
+            var reactOutput = convertToReact(htmlInput);
+            document.getElementById('reactOutput').textContent = reactOutput;
+        });
+
+        document.getElementById('copyBtn').addEventListener('click', function () {
+            var reactOutput = document.getElementById('reactOutput');
+            reactOutput.select();
+            document.execCommand('copy');
+            alert('Copied to clipboard!');
+        });
+
+        function convertToReact(html) {
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(html, 'text/html');
+            var reactOutput = processNode(doc.body);
+
+            return reactOutput;
+        }
+
+        function processNode(node) {
+            var react = '';
+            if (node.nodeType === Node.TEXT_NODE) {
+                react += node.textContent.trim();
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                react += '<' + node.tagName.toLowerCase();
+                if (node.hasAttributes()) {
+                    var attributes = node.attributes;
+                    for (var i = 0; i < attributes.length; i++) {
+                        var attr = attributes[i];
+                        if (attr.name === 'class') {
+                            react += ' className="' + attr.value + '"';
+                        } else if (attr.name === 'for') {
+                            react += ' htmlFor="' + attr.value + '"';
+                        } else {
+                            react += ' ' + attr.name + '="' + attr.value + '"';
+                        }
+                    }
+                }
+                react += '>';
+                for (var i = 0; i < node.childNodes.length; i++) {
+                    react += processNode(node.childNodes[i]);
+                }
+                react += '</' + node.tagName.toLowerCase() + '>';
+            }
+
+            return react;
+        }
+</script>
+</body>
+
+</html>
