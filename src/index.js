@@ -28,10 +28,10 @@ function Index() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/react1/" element={<Navbar />}>
-          <Route path="/react1/home" element={<Home />} />
-          <Route path="/react1/Shop" element={<Shop />} />
-          <Route path="/react1/features" element={<Features />} />
+        <Route path="/" element={<Navbar />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/Shop" element={<Shop />} />
+          <Route path="/features" element={<Features />} />
           <Route path="/Blog" element={<Blog />} />
           <Route path="/about" element={<About />} />
           <Route path="/product/" element={<Product />} />
