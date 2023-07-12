@@ -28,24 +28,24 @@ function Index() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navbar />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/Shop" element={<Shop />} />
-          <Route path="/features" element={<Features />} />
-          <Route path="/Blog" element={<Blog />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/product/" element={<Product />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/contect" element={<Contect />} />
-          <Route path="/main_product/:id" element={<Main_product />} />
-          <Route path="/admin_login" element={<Admin_login />} />
-          <Route path="/brand_login" element={<Brand_login />} />
-          <Route path="/user_login" element={<User_login />} />
-          <Route path="/addtocart" element={<Addtocart />} />
-          <Route path="/brand_penal" element={<Brandpenal />} />
-          <Route path="/addproduct" element={<AddProduct />} />
-          <Route path="/temp" element={<Temp />} />
-        </Route>
+        {/* <Route path="/" element={<Navbar />}> */}
+        <Route path="/react1" element={<Home />} />
+        <Route path="/Shop" element={<Shop />} />
+        <Route path="/features" element={<Features />} />
+        <Route path="/Blog" element={<Blog />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/product/" element={<Product />} />
+        <Route path="/product/:id" element={<Product />} />
+        <Route path="/contect" element={<Contect />} />
+        <Route path="/main_product/:id" element={<Main_product />} />
+        <Route path="/admin_login" element={<Admin_login />} />
+        <Route path="/brand_login" element={<Brand_login />} />
+        <Route path="/user_login" element={<User_login />} />
+        <Route path="/addtocart" element={<Addtocart />} />
+        <Route path="/brand_penal" element={<Brandpenal />} />
+        <Route path="/addproduct" element={<AddProduct />} />
+        <Route path="/temp" element={<Temp />} />
+        {/* </Route> */}
       </Routes>
     </BrowserRouter>
   );
