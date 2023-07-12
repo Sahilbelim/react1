@@ -28,7 +28,7 @@ function Index() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/react1//" element={<Navbar />}>
+        <Route path="/react1/" element={<Navbar />}>
           <Route path="/react1/home" element={<Home />} />
           <Route path="/react1/Shop" element={<Shop />} />
           <Route path="/react1/features" element={<Features />} />
