@@ -17,6 +17,7 @@ import Addtocart from './my_folder/Addtocart';
 import Brandpenal from './my_folder/Brand_penal';
 import AddProduct from './my_folder/Addproduct';
 import Temp from './my_folder/temp';
+import Navbar from './my_folder/Navbar';
 // import Navbar from './my_folder/Navbar';
 // import MyComponent from "./myscript.js";
 // import App from './App';
@@ -27,10 +28,10 @@ function Index() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/Shop" element={<Shop />} />
-          <Route path="/features" element={<Features />} />
+        <Route path="/" element={<Navbar />}>
+          <Route path="react1//home" element={<Home />} />
+          <Route path="react1//Shop" element={<Shop />} />
+          <Route path="react1//features" element={<Features />} />
           <Route path="/Blog" element={<Blog />} />
           <Route path="/about" element={<About />} />
           <Route path="/product/" element={<Product />} />
