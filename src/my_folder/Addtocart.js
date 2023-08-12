@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 
 export default class Addtocart extends Component {
@@ -9,8 +10,39 @@ export default class Addtocart extends Component {
     super(props);
     this.state = {
       cart_iteam: [],
-      userid: 1,
+     
     };
+  }
+  Checkout()
+  {
+    alert("AddToCart");
+    console.log(this.state.productid);
+    let productid = 1;
+    let userid = Cookies.get("userid");
+
+    console.log(productid);
+    console.log(userid);
+    const form = new FormData();
+    var data = {
+      productid: productid,
+      userid: userid,
+    };
+    form.append("productid", productid);
+    form.append("userid", userid);
+
+    console.log(form);
+
+    axios
+      .post("http://localhost:5000/checkout", data)
+      .then((response) => {
+        console.log("API response:", response.data);
+
+        // Handle the response as needed
+      })
+      .catch((error) => {
+        console.error("Error calling API:", error);
+        // Handle the error as needed
+      });
   }
   getCookie(name) {
     const cookies = document.cookie.split(";");
@@ -26,6 +58,7 @@ export default class Addtocart extends Component {
     var date = {
       userid: this.getCookie("userid"),
     };
+    console.log(date);
     axios
       .post("http://localhost:5000/cart", date)
       .then((response) => {
@@ -224,7 +257,7 @@ export default class Addtocart extends Component {
                     </div>
                   </div>
 
-                  <button className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                  <button onClick={()=>this.Checkout()} className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
                     Proceed to Checkout
                   </button>
                 </div>

@@ -9,10 +9,12 @@ export default class Product extends Component {
     this.name = props.name;
     this.price = props.price;
     this.id = props.id;
+    this.Src = `../../../../node/project_api/images/my_image.png` ;
 
   }
 
   render() {
+    // C:\node\project_api\images\my_image.png
     var url = `/main_product/` + this.id;
     // console.log(url)
     return (
@@ -21,7 +23,10 @@ export default class Product extends Component {
         <a href={url}>
           <div className="block2">
             <div className="block2-pic  hov-img0">
-              <img src={this.src} alt="IMG-PRODUCT" />
+              <img
+                src={this.src}
+                alt="IMG-PRODUCT"
+              />
 
               <a
                 href={url}

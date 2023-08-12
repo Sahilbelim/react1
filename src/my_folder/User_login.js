@@ -5,11 +5,18 @@ const FormData = require("form-data");
 export default class User_login extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      
-    };
+    this.state = {};
   }
-
+  getCookie(name) {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.startsWith(name + "=")) {
+        return cookie.substring(name.length + 1);
+      }
+    }
+    return null;
+  }
   Login() {
     alert("call");
     let status;
@@ -29,18 +36,18 @@ export default class User_login extends Component {
     axios
       .post("http://localhost:5000/User_login", jsonObject)
       .then((response) => {
-        
-      
         console.log("API response:", response.data);
+        var data = response.data;
+        console.log("API response:", data.result[0]["id"]);
         document.cookie = `userid=${response.data.result[0].id}`;
-        var cookies = document.cookie;
-        console.log(cookies)
+        var cookies = this.getCookie("userid");
+        console.log(cookies);
         // Handle the response as needed
-          status = response.data.status;
-         if (status === 700) {
-           console.log("status is", status);
+        status = response.data.status;
+        if (status === 700) {
+          console.log("status is", status);
            window.location.href = "/home";
-         } 
+        }
       })
       .catch((error) => {
         console.error("Error calling API:", error);
@@ -49,8 +56,8 @@ export default class User_login extends Component {
   }
 
   render() {
-    const { ms } = this.state;
-    console.log(ms);
+    // const { ms } = this.state;
+    // console.log(ms);
     return (
       <div>
         <div>
