@@ -23,7 +23,7 @@ export default class Navbar extends Component {
   }
 
   render() {
-    var userid = Cookies.get("userid"); 
+    var userid = Cookies.get("user+id"); 
     return (
       <div>
         <div className="mt-5"></div>
